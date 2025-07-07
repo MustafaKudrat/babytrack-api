@@ -1,11 +1,13 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    DATABASE_URL: str
-    OPENAI_API_KEY: str
-    JWT_SECRET_KEY: str
+    DATABASE_URL: str = "sqlite+aiosqlite:///./babytrack.db"
 
-    class Config:
-        env_file = ".env"
+    @property
+    def SQLALCHEMY_DATABASE_URI(self):
+        return self.DATABASE_URL
+
+    SECRET_KEY: str = "your-secret-key"
+    ALGORITHM: str = "HS256"
 
 settings = Settings()
