@@ -12,4 +12,6 @@ class User(Base):
 
     # STRING name only — DO NOT import SleepLog
     sleep_logs = relationship("SleepLog", back_populates="user")
+    feeding_logs = relationship("FeedingLog", back_populates="user")
+    diaper_logs = relationship("DiaperLog", back_populates="user")
 
