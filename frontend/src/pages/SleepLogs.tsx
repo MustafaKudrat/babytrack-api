@@ -6,6 +6,7 @@ export interface SleepLog {
   start_time: string
   end_time: string
   notes?: string
+
 }
 
 const SleepLogs = ({ token }: { token: string }) => {
@@ -15,6 +16,7 @@ const SleepLogs = ({ token }: { token: string }) => {
   const [newStart, setNewStart] = useState('')
   const [newEnd, setNewEnd] = useState('')
   const [newNotes, setNewNotes] = useState('')
+
 
   const fetchLogs = async () => {
     const params = new URLSearchParams()
@@ -70,6 +72,7 @@ const SleepLogs = ({ token }: { token: string }) => {
     })
     fetchLogs()
   }
+
 
   useEffect(() => { fetchLogs() }, [])
 

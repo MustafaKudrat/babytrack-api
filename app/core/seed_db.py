@@ -13,6 +13,7 @@ async def seed():
         return
     async with async_session() as session:
         user = User(email=email, hashed_password=get_password_hash(password))
+
         session.add(user)
         await session.commit()
 
