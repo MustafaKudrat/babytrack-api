@@ -7,7 +7,7 @@ from app.core.utils import get_password_hash
 async def seed():
     async with async_session() as session:
         user = User(
-            email="mu",
+            email="mu@gmail.com",
             hashed_password=get_password_hash("Ku")
         )
         session.add(user)
