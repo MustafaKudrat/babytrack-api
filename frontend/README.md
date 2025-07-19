@@ -11,13 +11,6 @@ npm run dev
 
 Copy `.env.example` to `.env` and adjust `VITE_API_BASE_URL` if needed.
 
-For quick testing you can log in with the seeded credentials:
-
-```
-Email: mu@gmail.com
-Password: Ku
-```
-
 Register a new account in the app to obtain a token. The token is stored in
 `localStorage` so you stay logged in across reloads during development.
 
