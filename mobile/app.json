@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "BabyTrack",
+    "slug": "babytrack",
+    "version": "1.0.0",
+    "sdkVersion": "50.0.0",
+    "platforms": ["ios", "android", "web"],
+    "extra": {
+      "apiUrl": "http://localhost:8000"
+    }
+  }
+}
