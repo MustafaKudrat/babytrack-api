@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { API_BASE_URL } from '../config'
 
-const Login = ({ onLogin }: { onLogin: (token: string) => void }) => {
+const Register = ({ onRegister }: { onRegister: (token: string) => void }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -10,23 +10,23 @@ const Login = ({ onLogin }: { onLogin: (token: string) => void }) => {
     e.preventDefault()
     setError('')
     try {
-      const res = await fetch(`${API_BASE_URL}/login`, {
+      const res = await fetch(`${API_BASE_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
       })
-      if (!res.ok) throw new Error('Login failed')
+      if (!res.ok) throw new Error('Register failed')
       const data = await res.json()
-      onLogin(data.access_token)
+      onRegister(data.access_token)
     } catch (err) {
-      setError('Invalid credentials')
+      setError('Registration failed')
     }
   }
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100 p-4">
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow w-full max-w-sm space-y-4">
-        <h1 className="text-xl font-bold text-center">Login</h1>
+        <h1 className="text-xl font-bold text-center">Register</h1>
         {error && <p className="text-red-500 text-sm">{error}</p>}
         <input
           className="border p-2 w-full"
@@ -44,11 +44,11 @@ const Login = ({ onLogin }: { onLogin: (token: string) => void }) => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="bg-blue-500 text-white w-full py-2 rounded">Login</button>
-        <a href="/register" className="text-blue-500 text-sm block text-center">Need an account? Register</a>
+        <button type="submit" className="bg-blue-500 text-white w-full py-2 rounded">Register</button>
+        <a href="/login" className="text-blue-500 text-sm block text-center">Back to login</a>
       </form>
     </div>
   )
 }
 
-export default Login
+export default Register
