@@ -9,6 +9,12 @@ npm install
 npm run dev
 ```
 
-The API base URL can be configured in `.env`.
+Copy `.env.example` to `.env` and adjust `VITE_API_BASE_URL` if needed.
+Default credentials for local testing:
+
+```
+Email: mu@gmail.com
+Password: Ku
+```
 
 This app is also configured as a PWA so it can be installed on your phone.

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from '../config'
 
 export interface SleepLog {
   id: number
@@ -15,7 +16,7 @@ const SleepLogs = ({ token }: { token: string }) => {
     const params = new URLSearchParams()
     if (start) params.append('start_time', start)
     if (end) params.append('end_time', end)
-    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/sleep-logs?${params.toString()}`, {
+    const res = await fetch(`${API_BASE_URL}/sleep-logs?${params.toString()}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     if (res.ok) {

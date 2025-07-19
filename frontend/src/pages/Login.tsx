@@ -1,15 +1,16 @@
 import { useState } from 'react'
+import { API_BASE_URL } from '../config'
 
 const Login = ({ onLogin }: { onLogin: (token: string) => void }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('mu@gmail.com')
+  const [password, setPassword] = useState('Ku')
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/login`, {
+      const res = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
