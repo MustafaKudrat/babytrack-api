@@ -6,7 +6,7 @@ class FeedingLogBase(BaseModel):
     start_time: datetime
     end_time: datetime
     food_type: Optional[str] = None
-    amount: Optional[int] = None
+    amount: Optional[str] = None
     notes: Optional[str] = None
 
 class FeedingLogCreate(FeedingLogBase):
